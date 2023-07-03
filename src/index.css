@@ -33,7 +33,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #242424;
+  background-color: rgb(12, 12, 28);
 }
 
 h1 {

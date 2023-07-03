@@ -6,8 +6,9 @@ export const FooterStyled = styled.footer`
   height: 25vh;
   color: ${colors.fontColor};
   background-color: ${colors.primaryDark};
-  padding-top: 20px;
+  padding-top: 40px;
   padding-bottom: 20px;
+  border-top: 1.5px solid rgba(255, 255, 255, 0.3);
 
   .contents {
     display: flex;
