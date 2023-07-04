@@ -1,3 +1,4 @@
+import { redirect, useNavigate } from "react-router-dom";
 import {
   ButtonStyled,
   HeaderStyled,
@@ -7,6 +8,7 @@ import {
 } from "./styled";
 
 export const Header = () => {
+  const navigate = useNavigate();
   return (
     <HeaderStyled>
       <div className="left-side">
@@ -31,7 +33,9 @@ export const Header = () => {
           </li>
 
           <li>
-            <ButtonStyled>Try Free</ButtonStyled>
+            <ButtonStyled onClick={() => navigate("/register")}>
+              Try Free
+            </ButtonStyled>
           </li>
         </UlStyled>
       </div>

@@ -6,11 +6,11 @@ export const Footer = () => {
     <FooterStyled>
       <div className="contents">
         <div className="lists">
-          {list.map((el) => (
-            <UlStyled>
+          {list.map((el, index) => (
+            <UlStyled key={index}>
               <p className="title">{el.title}</p>
-              {el.items.map((item) => (
-                <li>
+              {el.items.map((item, indexItem) => (
+                <li key={indexItem}>
                   <a href="">{item.title}</a>
                 </li>
               ))}
