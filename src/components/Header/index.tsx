@@ -15,13 +15,13 @@ export const Header = () => {
         <h1 className="title">WillChat</h1>
         <UlStyled className="list">
           <LiStyled>
-            <a href="">Home</a>
+            <a href="/">Home</a>
           </LiStyled>
           <LiStyled>
-            <a href="">Docs</a>
+            <a href="/docs">Docs</a>
           </LiStyled>
           <LiStyled>
-            <a href="">Support</a>
+            <a href="/support">Support</a>
           </LiStyled>
         </UlStyled>
       </div>
