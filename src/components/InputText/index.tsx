@@ -4,7 +4,8 @@ import { InputStyled } from "./styled";
 interface InputTextProps {
   className?: string;
   type?: string;
-  register: UseFormRegisterReturn;
+  register?: UseFormRegisterReturn;
+  placeholder?: string;
 }
 
 export const InputText = (props: InputTextProps) => {
@@ -17,7 +18,7 @@ export const InputText = (props: InputTextProps) => {
           </g>
         </svg>
         <input
-          placeholder="Search"
+          placeholder={props.placeholder}
           {...props.register}
           type={props.type}
           className="input"

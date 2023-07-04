@@ -27,6 +27,7 @@ export const RegisterPage = () => {
               <InputText
                 type="text"
                 register={register("name", { required: true })}
+                placeholder="Type your name"
               />
             </div>
             <div className="input-container">
@@ -34,6 +35,7 @@ export const RegisterPage = () => {
               <InputText
                 type="text"
                 register={register("email", { required: true })}
+                placeholder="Type your email"
               />
             </div>
             <div className="input-container">
@@ -41,6 +43,7 @@ export const RegisterPage = () => {
               <InputText
                 type="text"
                 register={register("password", { required: true })}
+                placeholder="Type your password"
               />
             </div>
 
