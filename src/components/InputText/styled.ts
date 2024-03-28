@@ -9,6 +9,16 @@ export const InputStyled = styled.div`
     max-width: 300px;
   }
 
+  .eye-icon {
+    position: absolute;
+    right: 1rem;
+    width: 1.4rem;
+    height: 1.4rem;
+    fill: #9e9ea7;
+    top: 12px;
+    cursor: pointer;
+  }
+
   .input {
     width: 100%;
     height: 40px;

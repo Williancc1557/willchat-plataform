@@ -1,7 +1,7 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Header } from "../../components/Header";
 import { FormContainerStyled, FormStyled } from "./styled";
-import { InputText } from "../../components/InputText";
+import { InputPassword, InputText } from "../../components/InputText";
 import { SnackBar } from "../../components/SnackBar";
 import { useState } from "react";
 import { MdDriveFileRenameOutline } from "react-icons/md";
@@ -48,9 +48,9 @@ export const RegisterPage = () => {
             </div>
             <div className="input-container">
               <label htmlFor="password">Password</label>
-              <InputText
+              <InputPassword
                 icon={IoKey}
-                type="text"
+                type="password"
                 register={register("password", { required: true })}
                 placeholder="Type your password"
               />
