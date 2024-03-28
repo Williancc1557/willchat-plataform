@@ -47,6 +47,7 @@ export const FormStyled = styled.form`
       width: 300px;
       height: 50px;
       background-color: ${colors.secondBlue};
+      color: ${colors.secondaryDark};
     }
 
     .input-container {
