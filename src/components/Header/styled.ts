@@ -79,7 +79,7 @@ export const SignInLinkStyled = styled.a`
 export const ButtonStyled = styled.button`
   padding: 16px 32px;
   background-color: ${colors.secondBlue};
-  color: black;
+  color: ${colors.primaryDark};
   transition: 0.4s;
 
   &:hover {
