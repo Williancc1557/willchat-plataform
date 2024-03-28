@@ -12,7 +12,9 @@ export const Header = () => {
   return (
     <HeaderStyled>
       <div className="left-side">
-        <h1 className="title">WillChat</h1>
+        <h1 className="title">
+          <a href="/">WillChat</a>
+        </h1>
         <UlStyled className="list">
           <LiStyled>
             <a href="/">Home</a>
