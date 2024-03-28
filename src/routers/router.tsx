@@ -1,14 +1,17 @@
 import { Route, Routes } from "react-router-dom";
 import { LandingPage } from "../views/LandingPage";
 import { RegisterPage } from "../views/RegisterPage";
-import { useAuth0 } from "@auth0/auth0-react";
+import { HomePage } from "../views/Authorized/HomePage";
 
 export const Routers = () => {
-  const { isAuthenticated } = useAuth0();
+  const isAuthenticated = false;
+
   return (
     <Routes>
       {isAuthenticated ? (
-        <></>
+        <>
+          <Route path="/home" element={<HomePage />} />
+        </>
       ) : (
         <>
           <Route path="/" element={<LandingPage />} />
