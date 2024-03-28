@@ -4,6 +4,9 @@ import { FormContainerStyled, FormStyled } from "./styled";
 import { InputText } from "../../components/InputText";
 import { SnackBar } from "../../components/SnackBar";
 import { useState } from "react";
+import { MdDriveFileRenameOutline } from "react-icons/md";
+import { MdOutlineEmail } from "react-icons/md";
+import { IoKey } from "react-icons/io5";
 
 interface Inputs {
   name: string;
@@ -28,6 +31,7 @@ export const RegisterPage = () => {
             <div className="input-container">
               <label htmlFor="name">Name</label>
               <InputText
+                icon={MdDriveFileRenameOutline}
                 type="text"
                 register={register("name", { required: true })}
                 placeholder="Type your name"
@@ -36,6 +40,7 @@ export const RegisterPage = () => {
             <div className="input-container">
               <label htmlFor="email">Email</label>
               <InputText
+                icon={MdOutlineEmail}
                 type="text"
                 register={register("email", { required: true })}
                 placeholder="Type your email"
@@ -44,6 +49,7 @@ export const RegisterPage = () => {
             <div className="input-container">
               <label htmlFor="password">Password</label>
               <InputText
+                icon={IoKey}
                 type="text"
                 register={register("password", { required: true })}
                 placeholder="Type your password"

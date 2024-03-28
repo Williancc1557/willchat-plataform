@@ -39,7 +39,7 @@ export const InputStyled = styled.div`
     position: absolute;
     left: 1rem;
     fill: #9e9ea7;
-    width: 1rem;
-    height: 1rem;
+    width: 1.2rem;
+    height: 1.2rem;
   }
 `;
