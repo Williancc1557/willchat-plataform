@@ -31,6 +31,10 @@ export const FormStyled = styled.form`
     justify-content: center;
     text-transform: uppercase;
     margin-top: 20px;
+
+    .title {
+      font-size: 1.6rem;
+    }
   }
 
   .content {
