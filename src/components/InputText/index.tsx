@@ -29,6 +29,7 @@ export const InputPassword = (props: InputTextProps) => {
         <button
           className="eye-icon-container"
           onClick={() => setShowText(!showText)}
+          type="button"
         >
           {showText ? (
             <FaEye className="eye-icon" />
