@@ -19,33 +19,39 @@ export const InputPassword = (props: InputTextProps) => {
   return (
     <InputStyled>
       <div className={`group ${props.className}`}>
-        <props.icon className="icon"/>
+        <props.icon className="icon" />
         <input
           placeholder={props.placeholder}
           {...props.register}
           type={showText ? "text" : "password"}
           className="input"
         />
-        <div className="eye-icon-container" onClick={() => setShowText(!showText)}>
-          {showText ? <FaEye className="eye-icon"/> : <FaEyeSlash className="eye-icon" />}
-        </div>
+        <button
+          className="eye-icon-container"
+          onClick={() => setShowText(!showText)}
+        >
+          {showText ? (
+            <FaEye className="eye-icon" />
+          ) : (
+            <FaEyeSlash className="eye-icon" />
+          )}
+        </button>
       </div>
     </InputStyled>
-  )
-}
-
+  );
+};
 
 export const InputText = (props: InputTextProps) => {
   return (
     <InputStyled>
       <div className={`group ${props.className}`}>
-      <props.icon className="icon"/>
-      <input
-        placeholder={props.placeholder}
-        {...props.register}
-        type={props.type}
-        className="input"
-      />
+        <props.icon className="icon" />
+        <input
+          placeholder={props.placeholder}
+          {...props.register}
+          type={props.type}
+          className="input"
+        />
       </div>
     </InputStyled>
   );

@@ -7,16 +7,19 @@ export const InputStyled = styled.div`
     align-items: center;
     position: relative;
     max-width: 300px;
-  }
 
-  .eye-icon {
-    position: absolute;
-    right: 1rem;
-    width: 1.4rem;
-    height: 1.4rem;
-    fill: #9e9ea7;
-    top: 12px;
-    cursor: pointer;
+    .eye-icon-container {
+      padding: 0;
+      .eye-icon {
+        position: absolute;
+        right: 1rem;
+        width: 1.4rem;
+        height: 1.4rem;
+        fill: #9e9ea7;
+        top: 12px;
+        cursor: pointer;
+      }
+    }
   }
 
   .input {
