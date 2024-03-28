@@ -7,6 +7,7 @@ import { useState } from "react";
 import { MdDriveFileRenameOutline } from "react-icons/md";
 import { MdOutlineEmail } from "react-icons/md";
 import { IoKey } from "react-icons/io5";
+import { useAuth0 } from "@auth0/auth0-react";
 
 interface Inputs {
   name: string;
@@ -15,9 +16,13 @@ interface Inputs {
 }
 
 export const RegisterPage = () => {
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    console.log(data);
+    loginWithRedirect();
+  };
   const { register, handleSubmit } = useForm<Inputs>();
   const [snackOpen, setSnackOpen] = useState(false);
+  const { loginWithRedirect } = useAuth0();
 
   return (
     <>
