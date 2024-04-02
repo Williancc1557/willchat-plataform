@@ -1,4 +1,4 @@
-import { SubmitHandler, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Header } from "../../components/Header";
 import { FormContainerStyled, FormStyled } from "./styled";
 import { InputPassword, InputText } from "../../components/InputText";

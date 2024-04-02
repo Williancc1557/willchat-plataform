@@ -44,8 +44,8 @@ const authReducer = ((state: AuthState, action: AuthAction) => {
       };
     case AuthActionKind.SIGN_UP:
       return {
-        refreshToken: null,
-        accessToken: null,
+        refreshToken: payload.refreshToken,
+        accessToken: payload.accessToken,
       };
     default:
       return state;

@@ -17,24 +17,30 @@ export const useSignUp = () => {
     setIsLoading(true);
     setError(null);
 
-    const response = await axiosConfig("/api/auth/sign-up", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      data: JSON.stringify({ name, email, password }),
-    });
+    try {
+      const response = await axiosConfig("/api/auth/sign-up", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        data: JSON.stringify({ name, email, password }),
+      });
 
-    const json = await response.data();
+      const json = await response.data();
 
-    if (response.status >= 400) {
+      if (response.status >= 400) {
+        setIsLoading(false);
+        setError(json.error);
+      }
+
+      if (response.status >= 200 && response.status < 300) {
+        localStorage.setItem("accesstoken", json.accessToken);
+        localStorage.setItem("refreshtoken", json.refreshToken);
+        dispatch({ type: AuthActionKind.SIGN_UP, payload: json });
+        setIsLoading(false);
+      }
+    } catch (error) {
       setIsLoading(false);
-      setError(json.error);
-    }
-
-    if (response.status >= 200 && response.status < 300) {
-      localStorage.setItem("accesstoken", json.accessToken);
-      localStorage.setItem("refreshtoken", json.refreshToken);
-      dispatch({ type: AuthActionKind.SIGN_UP, payload: json });
-      setIsLoading(false);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      setError((error as any).message);
     }
   };
 
