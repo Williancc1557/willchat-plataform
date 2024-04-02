@@ -7,6 +7,7 @@ import { useState } from "react";
 import { MdDriveFileRenameOutline } from "react-icons/md";
 import { MdOutlineEmail } from "react-icons/md";
 import { IoKey } from "react-icons/io5";
+import { useSignUp } from "../../hooks/useSignUp";
 
 interface Inputs {
   name: string;
@@ -15,16 +16,15 @@ interface Inputs {
 }
 
 export const RegisterPage = () => {
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
-  };
+  const { signUp, error, isLoading } = useSignUp();
   const { register, handleSubmit } = useForm<Inputs>();
+
   const [snackOpen, setSnackOpen] = useState(false);
 
   return (
     <>
       <Header />
-      <FormContainerStyled onSubmit={handleSubmit(onSubmit)}>
+      <FormContainerStyled onSubmit={handleSubmit(signUp)}>
         <FormStyled method="post">
           <div className="title-container">
             <h2 className="title">cadastro</h2>
@@ -59,6 +59,7 @@ export const RegisterPage = () => {
             </div>
 
             <button
+              disabled={isLoading}
               className="submit-button"
               onClick={() => setSnackOpen(true)}
               type="submit"
@@ -69,8 +70,12 @@ export const RegisterPage = () => {
         </FormStyled>
       </FormContainerStyled>
 
-      <SnackBar open={snackOpen} setOpen={setSnackOpen} severity="success">
+      {/* <SnackBar open={snackOpen} setOpen={setSnackOpen} severity="success">
         This is a success message
+      </SnackBar> */}
+
+      <SnackBar open={snackOpen} setOpen={setSnackOpen} severity="error">
+        {error}
       </SnackBar>
     </>
   );

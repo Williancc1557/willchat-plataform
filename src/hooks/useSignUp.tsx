@@ -1,17 +1,21 @@
 import { useState } from "react";
-import { useAuthContext } from "./useAuthContext";
+import { UseAuthContext } from "./UseAuthContext";
 import { axiosConfig } from "../utils/axiosConfig";
 import { AuthActionKind } from "../contexts/AuthContext";
 
 export const useSignUp = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const { dispatch } = UseAuthContext();
 
-  const signup = async (name: string, email: string, password: string) => {
+  interface SignUpType {
+    name: string;
+    email: string;
+    password: string;
+  }
+  const signUp = async ({ name, email, password }: SignUpType) => {
     setIsLoading(true);
     setError(null);
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const { dispatch } = useAuthContext();
 
     const response = await axiosConfig("/api/auth/sign-up", {
       method: "POST",
@@ -34,5 +38,5 @@ export const useSignUp = () => {
     }
   };
 
-  return { signup, isLoading, error };
+  return { signUp, isLoading, error };
 };

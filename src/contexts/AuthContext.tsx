@@ -58,6 +58,8 @@ export const AuthContextProvider = ({ children }: AuthContextProviderType) => {
     refreshToken: null,
   });
 
+  console.log("AuthContext state:", state);
+
   return (
     <AuthContext.Provider value={{ ...state, dispatch }}>
       {children}
