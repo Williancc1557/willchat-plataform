@@ -3,7 +3,7 @@ import { createContext, useReducer } from "react";
 
 export interface AuthContextType {
   state: any;
-  dispatch: React.DispatchWithoutAction;
+  dispatch: any;
 }
 
 export const AuthContext = createContext({} as AuthContextType);
@@ -12,9 +12,9 @@ interface AuthContextProviderType {
   children: React.ReactNode;
 }
 
-enum CountActionKind {
+export enum AuthActionKind {
   SIGN_IN = "SIGN_IN",
-  SIGN_OUT = "SIGN_OUT",
+  SIGN_UP = "SIGN_UP",
 }
 
 interface AuthState {
@@ -28,7 +28,7 @@ interface AuthPayload {
 }
 
 interface AuthAction {
-  type: CountActionKind;
+  type: AuthActionKind;
   payload: AuthPayload;
 }
 
@@ -36,12 +36,12 @@ const authReducer = ((state: AuthState, action: AuthAction) => {
   const { type, payload } = action;
 
   switch (type) {
-    case CountActionKind.SIGN_IN:
+    case AuthActionKind.SIGN_IN:
       return {
         refreshToken: payload.refreshToken,
         accessToken: payload.accessToken,
       };
-    case CountActionKind.SIGN_OUT:
+    case AuthActionKind.SIGN_UP:
       return {
         refreshToken: null,
         accessToken: null,
