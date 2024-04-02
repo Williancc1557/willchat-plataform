@@ -24,7 +24,7 @@ export const useSignUp = () => {
         data: JSON.stringify({ name, email, password }),
       });
 
-      const json = await response.data();
+      const json = response.data;
 
       if (response.status >= 400) {
         setIsLoading(false);
@@ -40,7 +40,7 @@ export const useSignUp = () => {
     } catch (error) {
       setIsLoading(false);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      setError((error as any).message);
+      setError((error as any).response.data.error);
     }
   };
 
