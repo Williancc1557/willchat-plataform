@@ -12,6 +12,7 @@ interface AuthContextProviderType {
   children: React.ReactNode;
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export enum AuthActionKind {
   SIGN_IN = "SIGN_IN",
   SIGN_UP = "SIGN_UP",
