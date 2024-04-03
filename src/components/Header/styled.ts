@@ -41,6 +41,7 @@ export const LiStyled = styled.li`
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: 500;
   height: 8vh;
   width: 100px;
   position: relative;
@@ -70,6 +71,7 @@ export const SignInLinkStyled = styled.a`
   margin-right: 30px;
   cursor: pointer;
   transition: 0.1s;
+  font-weight: 500;
 
   &:hover {
     color: ${colors.secondBlue};
@@ -81,6 +83,7 @@ export const ButtonStyled = styled.button`
   background-color: ${colors.secondBlue};
   color: ${colors.primaryDark};
   transition: 0.4s;
+  font-weight: 500;
 
   &:hover {
     border-radius: 40px;
