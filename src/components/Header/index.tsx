@@ -31,7 +31,9 @@ export const Header = () => {
       <div className="right-side">
         <UlStyled className="buttons-list">
           <li>
-            <SignInLinkStyled>Sign In</SignInLinkStyled>
+            <SignInLinkStyled onClick={() => navigate("/login")}>
+              Sign In
+            </SignInLinkStyled>
           </li>
 
           <li>
