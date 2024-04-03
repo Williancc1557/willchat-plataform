@@ -51,7 +51,13 @@ export const FormStyled = styled.form`
     }
 
     .input-container {
+      display: flex;
+      flex-direction: column;
       margin-bottom: 20px;
+
+      label {
+        margin-bottom: 5px;
+      }
 
       input {
         width: 300px;
