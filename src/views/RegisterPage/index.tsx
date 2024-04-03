@@ -8,6 +8,7 @@ import { MdDriveFileRenameOutline } from "react-icons/md";
 import { MdOutlineEmail } from "react-icons/md";
 import { IoKey } from "react-icons/io5";
 import { useSignUp } from "../../hooks/useSignUp";
+import { useNavigate } from "react-router-dom";
 
 interface Inputs {
   name: string;
@@ -18,6 +19,7 @@ interface Inputs {
 export const RegisterPage = () => {
   const { signUp, error, isLoading } = useSignUp();
   const { register, handleSubmit } = useForm<Inputs>();
+  const navigate = useNavigate();
 
   const [snackOpen, setSnackOpen] = useState(false);
 
@@ -65,6 +67,16 @@ export const RegisterPage = () => {
               type="submit"
             >
               Sign up
+            </button>
+          </div>
+          <div className="form-sign-in">
+            <span>Already have account?</span>
+            <button
+              onClick={() => navigate("/login")}
+              type="button"
+              className="sign-in-redirect"
+            >
+              Sign in now
             </button>
           </div>
         </FormStyled>

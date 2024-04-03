@@ -6,6 +6,7 @@ import { SnackBar } from "../../components/SnackBar";
 import { useState } from "react";
 import { MdOutlineEmail } from "react-icons/md";
 import { IoKey } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 interface Inputs {
   email: string;
@@ -14,6 +15,7 @@ interface Inputs {
 
 export const LoginPage = () => {
   const { register, handleSubmit } = useForm<Inputs>();
+  const navigate = useNavigate();
 
   const signIn: SubmitHandler<Inputs> = (data) => {
     console.log(data);
@@ -55,6 +57,16 @@ export const LoginPage = () => {
               type="submit"
             >
               Sign up
+            </button>
+          </div>
+          <div className="form-sign-in">
+            <span>Don’t have account?</span>
+            <button
+              onClick={() => navigate("/register")}
+              type="button"
+              className="sign-in-redirect"
+            >
+              Create Now
             </button>
           </div>
         </FormStyled>

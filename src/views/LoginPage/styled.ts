@@ -40,7 +40,7 @@ export const FormStyled = styled.form`
   .content {
     display: flex;
     flex-direction: column;
-    margin: 70px auto;
+    margin: 70px auto 40px auto;
 
     .submit-button {
       margin-top: 40px;
@@ -63,6 +63,18 @@ export const FormStyled = styled.form`
         width: 300px;
         font-size: 1.1rem;
       }
+    }
+  }
+
+  .form-sign-in {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .sign-in-redirect {
+      color: ${colors.secondBlue};
+      background-color: transparent;
+      padding: 0 10px;
     }
   }
 `;
