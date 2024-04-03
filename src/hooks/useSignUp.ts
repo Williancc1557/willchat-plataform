@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { UseAuthContext } from "./UseAuthContext";
+import { UseAuthContext } from "./useAuthContext";
 import { axiosConfig } from "../utils/axiosConfig";
 import { AuthActionKind } from "../contexts/AuthContext";
 
