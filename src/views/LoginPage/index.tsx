@@ -7,6 +7,7 @@ import { useState } from "react";
 import { MdOutlineEmail } from "react-icons/md";
 import { IoKey } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
+import { useSignIn } from "../../hooks/useSignIn";
 
 interface Inputs {
   email: string;
@@ -15,10 +16,11 @@ interface Inputs {
 
 export const LoginPage = () => {
   const { register, handleSubmit } = useForm<Inputs>();
+  const { error, isLoading, signIn } = useSignIn();
   const navigate = useNavigate();
 
-  const signIn: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
+  const signInHandler: SubmitHandler<Inputs> = async (data) => {
+    await signIn(data);
   };
 
   const [snackOpen, setSnackOpen] = useState(false);
@@ -26,7 +28,7 @@ export const LoginPage = () => {
   return (
     <>
       <Header />
-      <FormContainerStyled onSubmit={handleSubmit(signIn)}>
+      <FormContainerStyled onSubmit={handleSubmit(signInHandler)}>
         <FormStyled method="post">
           <div className="title-container">
             <h2 className="title">Login</h2>
@@ -55,6 +57,7 @@ export const LoginPage = () => {
               className="submit-button"
               onClick={() => setSnackOpen(true)}
               type="submit"
+              disabled={isLoading}
             >
               Sign up
             </button>
@@ -77,7 +80,7 @@ export const LoginPage = () => {
       </SnackBar> */}
 
       <SnackBar open={snackOpen} setOpen={setSnackOpen} severity="error">
-        error
+        {error}
       </SnackBar>
     </>
   );

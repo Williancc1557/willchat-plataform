@@ -33,16 +33,23 @@ interface AuthAction {
   payload: AuthPayload;
 }
 
+const saveTokensInStorage = (refreshToken: string, accessToken: string) => {
+  localStorage.setItem("refreshtoken", refreshToken);
+  localStorage.setItem("accesstoken", accessToken);
+};
+
 const authReducer = ((state: AuthState, action: AuthAction) => {
   const { type, payload } = action;
 
   switch (type) {
     case AuthActionKind.SIGN_IN:
+      saveTokensInStorage(payload.refreshToken, payload.accessToken);
       return {
-        refreshToken: payload.refreshToken,
         accessToken: payload.accessToken,
+        refreshToken: payload.refreshToken,
       };
     case AuthActionKind.SIGN_UP:
+      saveTokensInStorage(payload.refreshToken, payload.accessToken);
       return {
         refreshToken: payload.refreshToken,
         accessToken: payload.accessToken,

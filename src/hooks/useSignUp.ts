@@ -32,8 +32,6 @@ export const useSignUp = () => {
       }
 
       if (response.status >= 200 && response.status < 300) {
-        localStorage.setItem("accesstoken", json.accessToken);
-        localStorage.setItem("refreshtoken", json.refreshToken);
         dispatch({ type: AuthActionKind.SIGN_UP, payload: json });
         setIsLoading(false);
       }
