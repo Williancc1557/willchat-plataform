@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { createContext, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
+import { axiosConfig } from "../utils/axiosConfig";
 
 export interface AuthContextType {
   state: any;
@@ -16,6 +17,7 @@ interface AuthContextProviderType {
 export enum AuthActionKind {
   SIGN_IN = "SIGN_IN",
   SIGN_UP = "SIGN_UP",
+  REFRESH_TOKEN = "REFRESH_TOKEN",
 }
 
 interface AuthState {
@@ -36,6 +38,11 @@ interface AuthAction {
 const saveTokensInStorage = (refreshToken: string, accessToken: string) => {
   localStorage.setItem("refreshtoken", refreshToken);
   localStorage.setItem("accesstoken", accessToken);
+};
+
+const clearAllTokens = () => {
+  localStorage.removeItem("refreshtoken");
+  localStorage.removeItem("accesstoken");
 };
 
 const authReducer = ((state: AuthState, action: AuthAction) => {
@@ -65,7 +72,42 @@ export const AuthContextProvider = ({ children }: AuthContextProviderType) => {
     refreshToken: null,
   });
 
-  console.log("AuthContext state:", state);
+  console.log("Auth Context state: ", state);
+
+  useEffect(() => {
+    const refreshToken = localStorage.getItem("refreshtoken");
+
+    async function getNewAccessToken() {
+      try {
+        const { data, status } = await axiosConfig("/api/auth/refresh-token", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            refreshToken,
+          },
+        });
+
+        if (status >= 400) {
+          clearAllTokens();
+          return;
+        }
+
+        (dispatch as any)({
+          type: AuthActionKind.SIGN_IN,
+          payload: {
+            refreshToken,
+            accessToken: data.accessToken,
+          },
+        });
+      } catch (err) {
+        clearAllTokens();
+      }
+    }
+
+    if (refreshToken) {
+      getNewAccessToken();
+    }
+  }, []);
 
   return (
     <AuthContext.Provider value={{ ...state, dispatch }}>
