@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { UseAuthContext } from "./useAuthContext";
+import { useAuthContext } from "./useAuthContext";
 import { axiosConfig } from "../utils/axiosConfig";
 import { AuthActionKind } from "../contexts/AuthContext";
 
 export const useSignIn = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const { dispatch } = UseAuthContext();
+  const { dispatch } = useAuthContext();
 
   interface SignInType {
     email: string;
