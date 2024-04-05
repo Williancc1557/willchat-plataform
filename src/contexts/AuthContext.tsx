@@ -3,6 +3,8 @@ import { createContext, useEffect, useReducer } from "react";
 import { axiosConfig } from "../utils/axiosConfig";
 
 export interface AuthContextType {
+  accessToken?: string;
+  refreshToken?: string;
   state: any;
   dispatch: any;
 }
@@ -72,13 +74,14 @@ export const AuthContextProvider = ({ children }: AuthContextProviderType) => {
     refreshToken: null,
   });
 
-  console.log("Auth Context state: ", state);
+  console.log(state);
 
   useEffect(() => {
     const refreshToken = localStorage.getItem("refreshtoken");
 
     async function getNewAccessToken() {
       try {
+        state;
         const { data, status } = await axiosConfig("/api/auth/refresh-token", {
           method: "GET",
           headers: {
