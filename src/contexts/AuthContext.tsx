@@ -110,6 +110,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderType) => {
     if (refreshToken) {
       getNewAccessToken();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
