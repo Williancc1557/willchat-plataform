@@ -1,11 +1,11 @@
 import { Header } from "../../../components/Header";
-import { SideBar } from "../../../components/SideBar";
+import { SideBar, SideBarFieldSelected } from "../../../components/SideBar";
 
 export const HomePage = () => {
   return (
     <>
       <Header />
-      <SideBar>aaaaaaaaaaaaa</SideBar>
+      <SideBar selected={SideBarFieldSelected.CHAT}>aaaaaaaaaaaaa</SideBar>
     </>
   );
 };

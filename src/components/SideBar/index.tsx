@@ -1,25 +1,51 @@
 import { IoChatbubbleEllipses } from "react-icons/io5";
 import { SideBarStyled, SideBarWithContentStyled } from "./styled";
 
-export class SideBarProperties {
-  children: React.ReactNode;
+// eslint-disable-next-line react-refresh/only-export-components
+export enum SideBarFieldSelected {
+  OVERVIEW,
+  CHAT,
+  CHAT_METRICS,
 }
 
-export const SideBar = ({ children }: SideBarProperties) => {
+export interface SideBarProperties {
+  children: React.ReactNode;
+  selected: SideBarFieldSelected;
+}
+
+export const SideBar = ({ children, selected }: SideBarProperties) => {
   return (
     <>
       <SideBarWithContentStyled>
         <SideBarStyled>
           <ul>
-            <li>Overview</li>
+            <li
+              className={
+                selected == SideBarFieldSelected.OVERVIEW ? "selected" : ""
+              }
+            >
+              Overview
+            </li>
           </ul>
           <ul>
             <div className="sub-title">
               <IoChatbubbleEllipses className="icon" />
               <span>Management</span>
             </div>
-            <li>Chat</li>
-            <li>Chat Metrics</li>
+            <li
+              className={
+                selected == SideBarFieldSelected.CHAT ? "selected" : ""
+              }
+            >
+              Chat
+            </li>
+            <li
+              className={
+                selected == SideBarFieldSelected.CHAT_METRICS ? "selected" : ""
+              }
+            >
+              Chat Metrics
+            </li>
           </ul>
         </SideBarStyled>
         {children}
