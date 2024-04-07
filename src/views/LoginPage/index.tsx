@@ -59,7 +59,7 @@ export const LoginPage = () => {
               type="submit"
               disabled={isLoading}
             >
-              Sign up
+              Sign in
             </button>
           </div>
           <div className="form-sign-in">
