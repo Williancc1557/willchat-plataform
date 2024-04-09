@@ -6,14 +6,22 @@ export const SideBarWithContentStyled = styled.div`
 `;
 
 export const SideBarStyled = styled.div`
+  display: flex;
+  flex-direction: column;
   border-right-style: solid;
   border-right-color: rgba(255, 255, 255, 0.3);
   border-right-width: 0.1px;
   width: 200px;
   height: 90vh;
 
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
   .sub-title {
-    padding: 8px;
+    padding: 6px;
     gap: 5px;
     display: flex;
     align-items: center;
@@ -29,7 +37,7 @@ export const SideBarStyled = styled.div`
   }
 
   li {
-    padding: 8px;
+    padding: 6px;
     cursor: pointer;
   }
 
