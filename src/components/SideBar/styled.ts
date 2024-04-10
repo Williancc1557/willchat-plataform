@@ -3,6 +3,16 @@ import { colors } from "../../colors/colors";
 
 export const SideBarWithContentStyled = styled.div`
   display: flex;
+  height: 100%;
+
+  .content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    overflow: auto;
+    max-height: 91vh;
+  }
 `;
 
 export const SideBarStyled = styled.div`
@@ -12,7 +22,7 @@ export const SideBarStyled = styled.div`
   border-right-color: rgba(255, 255, 255, 0.3);
   border-right-width: 0.1px;
   width: 200px;
-  height: 100vh;
+  height: 100%;
 
   ul {
     display: flex;

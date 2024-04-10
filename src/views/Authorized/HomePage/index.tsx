@@ -1,16 +1,16 @@
 import { Header } from "../../../components/Header";
 import { SideBar, SideBarFieldSelected } from "../../../components/SideBar";
-import { HomePageStyled } from "./styled";
+import { HomePageContainerStyled, HomePageStyled } from "./styled";
 
 export const HomePage = () => {
   return (
-    <>
+    <HomePageContainerStyled>
       <Header />
       <SideBar selected={SideBarFieldSelected.CHAT}>
         <HomePageStyled>
-          <p>aaaaaaa</p>
+          <p>aaaaaaaa</p>
         </HomePageStyled>
       </SideBar>
-    </>
+    </HomePageContainerStyled>
   );
 };
