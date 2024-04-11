@@ -8,17 +8,20 @@ export const HomePageContainerStyled = styled.div`
 `;
 
 export const HomePageStyled = styled.div`
-  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
 
   .actions-container {
+    width: 100%;
     height: 80px;
     display: flex;
-    width: 100%;
     justify-content: space-between;
     align-items: center;
 
     .title {
-      margin-left: 20px;
       font-size: 1.5rem;
       font-weight: bold;
     }
@@ -28,13 +31,12 @@ export const HomePageStyled = styled.div`
       align-items: center;
       gap: 10px;
       height: 50px;
-      margin-right: 20px;
       background-color: ${colors.secondBlue};
       color: black;
     }
   }
 
-  p {
-    height: 70vh;
+  .card-container {
+    width: 100%;
   }
 `;
