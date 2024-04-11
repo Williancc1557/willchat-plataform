@@ -4,15 +4,6 @@ import { colors } from "../../colors/colors";
 export const SideBarWithContentStyled = styled.div`
   display: flex;
   height: 100%;
-
-  .content {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-    overflow: auto;
-    max-height: 91vh;
-  }
 `;
 
 export const SideBarStyled = styled.div`

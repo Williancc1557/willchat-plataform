@@ -3,6 +3,7 @@ import { Header } from "../../../components/Header";
 import { SideBar, SideBarFieldSelected } from "../../../components/SideBar";
 import { HomePageContainerStyled, HomePageStyled } from "./styled";
 import { Card, CardProps } from "../../../components/Card";
+import { Footer } from "../../../components/Footer";
 
 export const HomePage = () => {
   const chatList: Array<CardProps> = [
@@ -16,25 +17,30 @@ export const HomePage = () => {
       totalMessage: 10,
     },
   ];
+
   return (
     <HomePageContainerStyled>
       <Header />
-      <SideBar selected={SideBarFieldSelected.CHAT}>
-        <HomePageStyled>
-          <div className="actions-container">
-            <span className="title">Chats</span>
-            <button className="create-button">
-              <FaPlus />
-              <span>Create New Chat</span>
-            </button>
-          </div>
-          <div className="card-container">
-            {chatList.map((chat) => (
-              <Card {...chat}></Card>
-            ))}
-          </div>
-        </HomePageStyled>
-      </SideBar>
+      <div className="sidebar-content">
+        <SideBar selected={SideBarFieldSelected.CHAT} />
+        <div className="content">
+          <HomePageStyled>
+            <div className="actions-container">
+              <span className="title">Chats</span>
+              <button className="create-button">
+                <FaPlus />
+                <span>Create New Chat</span>
+              </button>
+            </div>
+            <div className="card-container">
+              {chatList.map((chat) => (
+                <Card {...chat}></Card>
+              ))}
+            </div>
+          </HomePageStyled>
+          <Footer />
+        </div>
+      </div>
     </HomePageContainerStyled>
   );
 };

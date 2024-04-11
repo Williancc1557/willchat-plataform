@@ -5,6 +5,22 @@ export const HomePageContainerStyled = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
+
+  .sidebar-content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    .content {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      max-height: 91vh;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
 `;
 
 export const HomePageStyled = styled.div`

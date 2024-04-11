@@ -1,6 +1,5 @@
 import { IoChatbubbleEllipses } from "react-icons/io5";
 import { SideBarStyled, SideBarWithContentStyled } from "./styled";
-import { Footer } from "../Footer";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export enum SideBarFieldSelected {
@@ -10,11 +9,10 @@ export enum SideBarFieldSelected {
 }
 
 export interface SideBarProperties {
-  children: React.ReactNode;
   selected: SideBarFieldSelected;
 }
 
-export const SideBar = ({ children, selected }: SideBarProperties) => {
+export const SideBar = ({ selected }: SideBarProperties) => {
   return (
     <>
       <SideBarWithContentStyled>
@@ -49,10 +47,6 @@ export const SideBar = ({ children, selected }: SideBarProperties) => {
             </li>
           </ul>
         </SideBarStyled>
-        <div className="content">
-          {children}
-          <Footer />
-        </div>
       </SideBarWithContentStyled>
     </>
   );
