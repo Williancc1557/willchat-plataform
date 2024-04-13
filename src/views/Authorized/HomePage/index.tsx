@@ -9,7 +9,7 @@ export const HomePage = () => {
   const chatList: Array<CardProps> = [
     {
       chatId: "123",
-      date: "15/10/2004",
+      date: "4 days ago",
       description:
         "Lorem ipsum dolor sit amet, consectetur adip occ tempor inv sapiente temp null hypothesis consectetur adip non proident null hypothesis",
       imageUrl: "fake-image.png",
@@ -34,7 +34,7 @@ export const HomePage = () => {
             </div>
             <div className="card-container">
               {chatList.map((chat) => (
-                <Card {...chat}></Card>
+                <Card key={chat.chatId} {...chat}></Card>
               ))}
             </div>
           </HomePageStyled>

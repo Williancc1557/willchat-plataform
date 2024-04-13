@@ -14,7 +14,7 @@ export const Card = (props: CardProps) => {
     <CardStyled>
       <div className="card-header">
         <div className="card-header-image">
-          <img className="image" src="" />
+          <img className="image" src="dark.jpg" />
         </div>
       </div>
       <div className="card-body">
@@ -23,8 +23,14 @@ export const Card = (props: CardProps) => {
         <p className="card-body-description">{props.description}</p>
       </div>
       <div className="card-footer">
-        <div className="card-footer-total-messages">{props.totalMessage}</div>
-        <div className="card-footer-chat-id">{props.chatId}</div>
+        <div className="card-footer-total-messages">
+          <div className="field">{props.totalMessage}</div>
+          <div className="title">TOTAL MESSAGES</div>
+        </div>
+        <div className="card-footer-chat-id">
+          <div className="field">{props.chatId}</div>
+          <div className="title">CHAT ID</div>
+        </div>
       </div>
     </CardStyled>
   );
